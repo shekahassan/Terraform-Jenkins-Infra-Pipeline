@@ -106,7 +106,7 @@ Before you begin, ensure you have the following:
 - Active AWS account with appropriate permissions
 - AWS Access Key ID and Secret Key
 - IAM permissions for EC2, VPC, and related services
-- Valid AWS region (default: `ap-south-1`)
+- Valid AWS region (default: `us-east-1`)
 
 ### Jenkins Configuration:
 - Jenkins credentials named `aws-access-key-id` and `aws-secret-access-key`
@@ -170,7 +170,7 @@ Export your AWS credentials:
 ```bash
 export AWS_ACCESS_KEY_ID="your-access-key"
 export AWS_SECRET_ACCESS_KEY="your-secret-key"
-export AWS_DEFAULT_REGION="ap-south-1"
+export AWS_DEFAULT_REGION="us-east-1"
 ```
 
 Or create an AWS credentials file at `~/.aws/credentials`:
@@ -216,13 +216,13 @@ variable "aws_secret_key" {
 variable "aws_region" {
   description = "AWS region"
   type        = string
-  default     = "ap-south-1"  # Change to your preferred region
+  default     = "us-east-1"  # Change to your preferred region
 }
 
 variable "ami" {
   type        = string
   description = "Ubuntu AMI ID"
-  default     = "ami-0f5ee92e2d63afc18"  # ap-south-1 Ubuntu 22.04 LTS
+  default     = "ami-0f5ee92e2d63afc18"  # us-east-1 Ubuntu 22.04 LTS
 }
 
 variable "instance_type" {
@@ -334,7 +334,7 @@ The `Jenkinsfile` orchestrates the following workflow:
 The pipeline sets up AWS credentials from Jenkins secrets:
 - `AWS_ACCESS_KEY_ID`
 - `AWS_SECRET_ACCESS_KEY`
-- `AWS_DEFAULT_REGION`: ap-south-1
+- `AWS_DEFAULT_REGION`: us-east-1
 
 ---
 
